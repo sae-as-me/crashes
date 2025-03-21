@@ -8,7 +8,7 @@ CWE-369: Divide By Zero
 A  vulnerability was discovered in the `dng_area_task::FindTileSize` function within dng_sdk. This issue occurs when processing certain files, leading to a potential application crash.
 ### Details
 The vulnerability arises in the `dng_area_task::FindTileSize` function defined in `source/dng_area_task.cpp` at line `145`. 
-The value of **`repeatH`** may be 0, which leads to the result of **`tileSize.h = Min_int32(repeatH, maxTileSize.h);`** being `0`, resulting in `Divide By Zero` in **`uint32 countH = (repeatH + tileSize.h - 1) / tileSize.h;`**.
+The value of **`repeatH`** may be `0`, which leads to the result of **`tileSize.h = Min_int32(repeatH, maxTileSize.h);`** being `0`, resulting in `Divide By Zero` in **`uint32 countH = (repeatH + tileSize.h - 1) / tileSize.h;`**.
 ```c++
 dng_point dng_area_task::FindTileSize(const dng_rect & area) const {
 
